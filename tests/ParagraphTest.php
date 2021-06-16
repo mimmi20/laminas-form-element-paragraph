@@ -15,7 +15,8 @@ namespace Mimmi20Test\Form\Element\Paragraph;
 use Laminas\Form\Exception\DomainException;
 use Laminas\Form\Exception\InvalidArgumentException;
 use Mimmi20\Form\Element\Paragraph\Paragraph;
-use Mimmi20Test\Form\Element\Paragraph\TestAsset\TestFormStringUrl;
+use Mimmi20Test\Form\Element\Paragraph\TestAsset\TestFormString;
+use Mimmi20Test\Form\Element\Paragraph\TestAsset\TestFormWrong;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 
@@ -45,10 +46,10 @@ final class ParagraphTest extends TestCase
      * @throws Exception
      * @throws InvalidArgumentException
      */
-    public function testCanRetrieveDefaultSeparator(): void
+    public function testCanRetrieveText(): void
     {
         $text      = 'http://www.test.com';
-        $form      = new TestFormStringUrl();
+        $form      = new TestFormString();
         $paragraph = $form->get('paragraph');
 
         assert(
@@ -64,6 +65,18 @@ final class ParagraphTest extends TestCase
     }
 
     /**
+     * @throws InvalidArgumentException
+     */
+    public function testCanRetrieveTextException(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionCode(0);
+        $this->expectExceptionMessage('The parameter must be a string');
+
+        new TestFormWrong();
+    }
+
+    /**
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws Exception
      * @throws InvalidArgumentException
@@ -71,7 +84,7 @@ final class ParagraphTest extends TestCase
      */
     public function testValidationIsEveryTimeTrue(): void
     {
-        $form = new TestFormStringUrl();
+        $form = new TestFormString();
 
         $form->setData([]);
 
