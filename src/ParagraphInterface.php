@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the mimmi20/laminas-form-element-links package.
+ * This file is part of the mimmi20/laminas-form-element-paragraph package.
  *
  * Copyright (c) 2021, Thomas Mueller <mimmi20@live.de>
  *
@@ -13,7 +13,6 @@ declare(strict_types = 1);
 namespace Mimmi20\Form\Element\Paragraph;
 
 use Laminas\Form\ElementInterface;
-use Laminas\Form\Exception\InvalidArgumentException;
 use Traversable;
 
 interface ParagraphInterface extends ElementInterface
