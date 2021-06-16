@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the mimmi20/laminas-form-element-links package.
+ * This file is part of the mimmi20/laminas-form-element-paragraph package.
  *
  * Copyright (c) 2021, Thomas Mueller <mimmi20@live.de>
  *
@@ -37,7 +37,7 @@ final class ConfigProvider
     {
         return [
             'aliases' => [
-                'paragraph'               => Paragraph::class,
+                'paragraph' => Paragraph::class,
                 ParagraphInterface::class => Paragraph::class,
             ],
             'factories' => [

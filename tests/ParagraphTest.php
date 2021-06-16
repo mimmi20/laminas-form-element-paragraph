@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the mimmi20/laminas-form-element-links package.
+ * This file is part of the mimmi20/laminas-form-element-paragraph package.
  *
  * Copyright (c) 2021, Thomas Mueller <mimmi20@live.de>
  *
@@ -47,9 +47,9 @@ final class ParagraphTest extends TestCase
      */
     public function testCanRetrieveDefaultSeparator(): void
     {
-        $text              = 'http://www.test.com';
-        $form              = new TestFormStringUrl();
-        $paragraph             = $form->get('paragraph');
+        $text      = 'http://www.test.com';
+        $form      = new TestFormStringUrl();
+        $paragraph = $form->get('paragraph');
 
         assert(
             $paragraph instanceof Paragraph,
@@ -89,8 +89,8 @@ final class ParagraphTest extends TestCase
      */
     public function testSetAndGetValue(): void
     {
-        $text = ' || ';
-        $paragraph             = new Paragraph();
+        $text      = ' || ';
+        $paragraph = new Paragraph();
 
         self::assertSame($paragraph, $paragraph->setValue($text));
         self::assertNotSame($text, $paragraph->getValue());

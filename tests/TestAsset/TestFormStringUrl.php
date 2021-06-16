@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the mimmi20/laminas-form-element-links package.
+ * This file is part of the mimmi20/laminas-form-element-paragraph package.
  *
  * Copyright (c) 2021, Thomas Mueller <mimmi20@live.de>
  *
@@ -26,9 +26,7 @@ final class TestFormStringUrl extends Form
             [
                 'type' => Paragraph::class,
                 'name' => 'paragraph',
-                'options' => [
-                    'text' => 'http://www.test.com',
-                ],
+                'options' => ['text' => 'http://www.test.com'],
             ]
         );
     }
