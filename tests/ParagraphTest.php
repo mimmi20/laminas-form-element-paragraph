@@ -108,4 +108,23 @@ final class ParagraphTest extends TestCase
         self::assertSame($paragraph, $paragraph->setValue($text));
         self::assertNotSame($text, $paragraph->getValue());
     }
+
+    /**
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws Exception
+     * @throws InvalidArgumentException
+     */
+    public function testGetInputSpecification(): void
+    {
+        $name      = 'test.name';
+        $expected  = [
+            'name' => $name,
+            'required' => false,
+        ];
+        $paragraph = new Paragraph();
+
+        self::assertSame($paragraph, $paragraph->setName($name));
+        self::assertSame($name, $paragraph->getName());
+        self::assertSame($expected, $paragraph->getInputSpecification());
+    }
 }
