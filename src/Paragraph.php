@@ -65,7 +65,7 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
     /**
      * Provide default input rules for this element
      *
-     * @return array<string, array<int, array<string, class-string>>|int|string|false>
+     * @return array<string, array<int, array<string, class-string>>|false|int|string>
      * @phpstan-return array('name' => string|null, 'required' => false)
      */
     public function getInputSpecification(): array

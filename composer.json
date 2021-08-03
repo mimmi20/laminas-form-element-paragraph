@@ -17,6 +17,8 @@
     "laminas/laminas-inputfilter": "^2.12.0"
   },
   "require-dev": {
+    "laminas/laminas-dependency-plugin": "^2.1.2",
+    "laminas/laminas-modulemanager": "^2.10.2",
     "mimmi20/coding-standard": "^2.3.0",
     "pepakriz/phpstan-exception-rules": "^0.11.7",
     "phpstan/extension-installer": "^1.1.0",
@@ -31,6 +33,7 @@
   },
   "extra": {
     "laminas": {
+      "component": "Mimmi20\\Form\\Element\\Paragraph",
       "config-provider": "Mimmi20\\Form\\Element\\Paragraph\\ConfigProvider"
     }
   },
