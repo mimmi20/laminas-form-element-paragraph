@@ -26,6 +26,9 @@ use function sprintf;
 
 final class ParagraphTest extends TestCase
 {
+    private const STR  = 'http://www.test.com';
+    private const NAME = 'test.name';
+
     /**
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws Exception
@@ -33,12 +36,11 @@ final class ParagraphTest extends TestCase
      */
     public function testSetStringHref(): void
     {
-        $str       = 'http://www.test.com';
         $paragraph = new Paragraph();
 
-        $paragraph->setText($str);
+        $paragraph->setText(self::STR);
 
-        self::assertSame($str, $paragraph->getText());
+        self::assertSame(self::STR, $paragraph->getText());
     }
 
     /**
@@ -116,15 +118,14 @@ final class ParagraphTest extends TestCase
      */
     public function testGetInputSpecification(): void
     {
-        $name      = 'test.name';
         $expected  = [
-            'name' => $name,
+            'name' => self::NAME,
             'required' => false,
         ];
         $paragraph = new Paragraph();
 
-        self::assertSame($paragraph, $paragraph->setName($name));
-        self::assertSame($name, $paragraph->getName());
+        self::assertSame($paragraph, $paragraph->setName(self::NAME));
+        self::assertSame(self::NAME, $paragraph->getName());
         self::assertSame($expected, $paragraph->getInputSpecification());
     }
 }
