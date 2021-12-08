@@ -1,9 +1,8 @@
 {
   "name": "mimmi20/laminas-form-element-paragraph",
-  "type": "library",
   "description": "Provides a GitHub repository laminas-form-element-paragraph for a PHP library, using GitHub actions.",
-  "homepage": "https://github.com/mimmi20/laminas-form-element-paragraph",
   "license": "MIT",
+  "type": "library",
   "authors": [
     {
       "name": "Thomas Müller",
@@ -11,13 +10,19 @@
       "role": "Developer"
     }
   ],
+  "homepage": "https://github.com/mimmi20/laminas-form-element-paragraph",
+  "support": {
+    "issues": "https://github.com/mimmi20/laminas-form-element-paragraph/issues",
+    "source": "https://github.com/mimmi20/laminas-form-element-paragraph"
+  },
   "require": {
     "php": "^7.4.3 || ^8.0.0",
     "ext-mbstring": "*",
-    "laminas/laminas-form": "^3.0.1",
-    "laminas/laminas-inputfilter": "^2.12.1"
+    "laminas/laminas-form": "^3.1.0",
+    "laminas/laminas-inputfilter": "^2.13.0"
   },
   "require-dev": {
+    "ergebnis/composer-normalize": "^2.18.0",
     "laminas/laminas-dependency-plugin": "^2.2.0",
     "laminas/laminas-modulemanager": "^2.11.0",
     "mimmi20/coding-standard": "^2.5.1",
@@ -27,16 +32,6 @@
     "phpstan/phpstan-phpunit": "^1.0.0",
     "phpunit/phpunit": "^9.5.10",
     "rector/rector": "^0.12.5"
-  },
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
-  "extra": {
-    "laminas": {
-      "component": "Mimmi20\\Form\\Element\\Paragraph",
-      "config-provider": "Mimmi20\\Form\\Element\\Paragraph\\ConfigProvider"
-    }
   },
   "autoload": {
     "psr-4": {
@@ -48,8 +43,14 @@
       "Mimmi20Test\\Form\\Element\\Paragraph\\": "tests/"
     }
   },
-  "support": {
-    "issues": "https://github.com/mimmi20/laminas-form-element-paragraph/issues",
-    "source": "https://github.com/mimmi20/laminas-form-element-paragraph"
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "extra": {
+    "laminas": {
+      "component": "Mimmi20\\Form\\Element\\Paragraph",
+      "config-provider": "Mimmi20\\Form\\Element\\Paragraph\\ConfigProvider"
+    }
   }
 }
