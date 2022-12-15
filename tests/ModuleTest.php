@@ -10,9 +10,9 @@
 
 declare(strict_types = 1);
 
-namespace Mimmi20Test\Form\Element\Paragraph;
+namespace Mimmi20Test\Form\Paragraph;
 
-use Mimmi20\Form\Element\Paragraph\Module;
+use Mimmi20\Form\Paragraph\Module;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;

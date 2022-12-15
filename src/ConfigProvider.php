@@ -10,9 +10,11 @@
 
 declare(strict_types = 1);
 
-namespace Mimmi20\Form\Element\Paragraph;
+namespace Mimmi20\Form\Paragraph;
 
 use Laminas\Form\ElementFactory;
+use Mimmi20\Form\Paragraph\Element\Paragraph;
+use Mimmi20\Form\Paragraph\Element\ParagraphInterface;
 
 final class ConfigProvider
 {
@@ -26,6 +28,7 @@ final class ConfigProvider
     {
         return [
             'form_elements' => $this->getFormElementConfig(),
+            'view_helpers' => $this->getViewHelperConfig(),
         ];
     }
 
@@ -44,6 +47,27 @@ final class ConfigProvider
             ],
             'factories' => [
                 Paragraph::class => ElementFactory::class,
+            ],
+        ];
+    }
+
+    /**
+     * Return application-level dependency configuration.
+     *
+     * @return array<string, array<string, string>>
+     * @phpstan-return array{aliases: array<string, class-string>, factories: array<class-string, class-string>}
+     */
+    public function getViewHelperConfig(): array
+    {
+        return [
+            'aliases' => [
+                'formparagraph' => FormParagraph::class,
+                'form_paragraph' => FormParagraph::class,
+                'formParagraph' => FormParagraph::class,
+                'FormParagraph' => FormParagraph::class,
+            ],
+            'factories' => [
+                FormParagraph::class => FormParagraphFactory::class,
             ],
         ];
     }

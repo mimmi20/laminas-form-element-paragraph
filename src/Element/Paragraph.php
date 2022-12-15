@@ -10,13 +10,12 @@
 
 declare(strict_types = 1);
 
-namespace Mimmi20\Form\Element\Paragraph;
+namespace Mimmi20\Form\Paragraph\Element;
 
 use Laminas\Form\Element;
 use Laminas\Form\Exception\InvalidArgumentException;
 use Laminas\InputFilter\InputProviderInterface;
 use Traversable;
-
 use function is_string;
 
 final class Paragraph extends Element implements InputProviderInterface, ParagraphInterface

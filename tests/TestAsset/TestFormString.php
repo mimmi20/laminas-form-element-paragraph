@@ -13,7 +13,7 @@ declare(strict_types = 1);
 namespace Mimmi20Test\Form\Element\Paragraph\TestAsset;
 
 use Laminas\Form\Form;
-use Mimmi20\Form\Element\Paragraph\Paragraph;
+use Mimmi20\Form\Paragraph\Element\Paragraph;
 
 final class TestFormString extends Form
 {

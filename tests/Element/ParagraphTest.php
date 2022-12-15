@@ -10,16 +10,15 @@
 
 declare(strict_types = 1);
 
-namespace Mimmi20Test\Form\Element\Paragraph;
+namespace Mimmi20Test\Form\Paragraph\Element;
 
 use Laminas\Form\Exception\DomainException;
 use Laminas\Form\Exception\InvalidArgumentException;
-use Mimmi20\Form\Element\Paragraph\Paragraph;
+use Mimmi20\Form\Paragraph\Element\Paragraph;
 use Mimmi20Test\Form\Element\Paragraph\TestAsset\TestFormString;
 use Mimmi20Test\Form\Element\Paragraph\TestAsset\TestFormWrong;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
-
 use function assert;
 use function get_class;
 use function sprintf;

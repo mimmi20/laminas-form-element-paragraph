@@ -10,7 +10,7 @@
 
 declare(strict_types = 1);
 
-namespace Mimmi20\Form\Element\Paragraph;
+namespace Mimmi20\Form\Paragraph;
 
 use Laminas\ModuleManager\Feature\ConfigProviderInterface;
 use Laminas\ModuleManager\Feature\DependencyIndicatorInterface;
@@ -29,6 +29,7 @@ final class Module implements ConfigProviderInterface, DependencyIndicatorInterf
 
         return [
             'form_elements' => $provider->getFormElementConfig(),
+            'view_helpers' => $provider->getViewHelperConfig(),
         ];
     }
 
