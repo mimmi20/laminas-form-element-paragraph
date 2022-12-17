@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the mimmi20/laminasviewrenderer-bootstrap-form package.
+ * This file is part of the mimmi20/laminas-form-element-paragraph package.
  *
- * Copyright (c) 2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2021-2022, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -62,9 +62,9 @@ final class FormParagraphTest extends TestCase
         $this->expectExceptionMessage(
             sprintf(
                 '%s requires that the element is of type %s',
-                'Mimmi20\LaminasView\BootstrapForm\FormParagraph::render',
-                ParagraphElement::class
-            )
+                'Mimmi20\Form\Paragraph\View\Helper\FormParagraph::render',
+                ParagraphElement::class,
+            ),
         );
         $this->expectExceptionCode(0);
 
