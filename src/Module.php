@@ -2,7 +2,7 @@
 /**
  * This file is part of the mimmi20/laminas-form-element-paragraph package.
  *
- * Copyright (c) 2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2021-2022, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,7 +10,7 @@
 
 declare(strict_types = 1);
 
-namespace Mimmi20\Form\Element\Paragraph;
+namespace Mimmi20\Form\Paragraph;
 
 use Laminas\ModuleManager\Feature\ConfigProviderInterface;
 use Laminas\ModuleManager\Feature\DependencyIndicatorInterface;
@@ -21,7 +21,7 @@ final class Module implements ConfigProviderInterface, DependencyIndicatorInterf
      * Return default configuration for laminas-mvc applications.
      *
      * @return array<string, array<string, array<int|string, string>>>
-     * @phpstan-return array{form_elements: array{aliases: array<string, class-string>, factories: array<class-string, class-string>}}
+     * @phpstan-return array{form_elements: array{aliases: array<string, class-string>, factories: array<class-string, class-string>}, view_helpers: array{aliases: array<string, class-string>, factories: array<class-string, class-string>}}
      */
     public function getConfig(): array
     {
@@ -29,6 +29,7 @@ final class Module implements ConfigProviderInterface, DependencyIndicatorInterf
 
         return [
             'form_elements' => $provider->getFormElementConfig(),
+            'view_helpers' => $provider->getViewHelperConfig(),
         ];
     }
 

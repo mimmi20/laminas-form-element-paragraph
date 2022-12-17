@@ -10,12 +10,16 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mimmi20/laminas-form-element-paragraph.svg)](http://isitmaintained.com/project/mimmi20/laminas-form-element-paragraph "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/mimmi20/laminas-form-element-paragraph.svg)](http://isitmaintained.com/project/mimmi20/laminas-form-element-paragraph "Percentage of issues still open")
 
+## Requirements
+
+This library requires PHP 8.1+.
+
 ## Installation
 
 Run
 
-```
-$ composer require mimmi20/laminas-form-element-paragraph
+```shell
+composer require mimmi20/laminas-form-element-paragraph
 ```
 
 ## License

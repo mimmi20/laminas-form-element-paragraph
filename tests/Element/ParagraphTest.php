@@ -2,7 +2,7 @@
 /**
  * This file is part of the mimmi20/laminas-form-element-paragraph package.
  *
- * Copyright (c) 2021, Thomas Mueller <mimmi20@live.de>
+ * Copyright (c) 2021-2022, Thomas Mueller <mimmi20@live.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,18 +10,17 @@
 
 declare(strict_types = 1);
 
-namespace Mimmi20Test\Form\Element\Paragraph;
+namespace Mimmi20Test\Form\Paragraph\Element;
 
 use Laminas\Form\Exception\DomainException;
 use Laminas\Form\Exception\InvalidArgumentException;
-use Mimmi20\Form\Element\Paragraph\Paragraph;
-use Mimmi20Test\Form\Element\Paragraph\TestAsset\TestFormString;
-use Mimmi20Test\Form\Element\Paragraph\TestAsset\TestFormWrong;
+use Mimmi20\Form\Paragraph\Element\Paragraph;
+use Mimmi20Test\Form\Paragraph\TestAsset\TestFormString;
+use Mimmi20Test\Form\Paragraph\TestAsset\TestFormWrong;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 
 use function assert;
-use function get_class;
 use function sprintf;
 
 final class ParagraphTest extends TestCase
@@ -57,16 +56,14 @@ final class ParagraphTest extends TestCase
             sprintf(
                 '$paragraph should be an Instance of %s, but was %s',
                 Paragraph::class,
-                get_class($paragraph)
-            )
+                $paragraph::class,
+            ),
         );
 
         self::assertSame($text, $paragraph->getText());
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
+    /** @throws InvalidArgumentException */
     public function testCanRetrieveTextException(): void
     {
         $this->expectException(InvalidArgumentException::class);
@@ -91,7 +88,7 @@ final class ParagraphTest extends TestCase
         self::assertTrue($form->isValid());
         self::assertSame(
             [],
-            $form->getMessages()
+            $form->getMessages(),
         );
     }
 
