@@ -364,6 +364,60 @@ final class FormParagraphTest extends TestCase
      * @throws Exception
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
+    public function testInvokeTextWithTranslator3(): void
+    {
+        $textDomain           = 'test-domain';
+        $text                 = 'test-text';
+        $textTranlated        = 'test-text-translated';
+        $textTranlatedEscaped = 'test-text-translated-escaped';
+        $class                = 'test-class1 test-class2 test-class1 ';
+        $expectedClass        = 'test-class1&#x20;test-class2';
+        $ariaLabel            = 'test';
+        $attributes           = ['class' => $class, 'aria-label' => $ariaLabel];
+
+        $expected = sprintf('<p aria-label="%s" class="%s">%s</p>', $ariaLabel, $expectedClass, $textTranlatedEscaped);
+
+        $escapeHtml = $this->getMockBuilder(EscapeHtml::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $escapeHtml->expects(self::once())
+            ->method('__invoke')
+            ->with($textTranlated)
+            ->willReturn($textTranlatedEscaped);
+
+        $translator = $this->getMockBuilder(Translate::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $translator->expects(self::once())
+            ->method('__invoke')
+            ->with($text, $textDomain)
+            ->willReturn($textTranlated);
+
+        $helper = new FormParagraph($escapeHtml, $translator);
+
+        $element = $this->getMockBuilder(ParagraphElement::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $element->expects(self::once())
+            ->method('getAttributes')
+            ->willReturn($attributes);
+        $element->expects(self::never())
+            ->method('getValue');
+        $element->expects(self::never())
+            ->method('getOption');
+        $element->expects(self::once())
+            ->method('getText')
+            ->willReturn($text);
+
+        $helper->setTranslatorTextDomain($textDomain);
+
+        self::assertSame($expected, $helper($element));
+    }
+
+    /**
+     * @throws Exception
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     */
     public function testSetGetIndent1(): void
     {
         $escapeHtml = $this->getMockBuilder(EscapeHtml::class)
