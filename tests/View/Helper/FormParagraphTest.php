@@ -316,11 +316,12 @@ final class FormParagraphTest extends TestCase
         $text                 = 'test-text';
         $textTranlated        = 'test-text-translated';
         $textTranlatedEscaped = 'test-text-translated-escaped';
-        $class                = 'test-class';
+        $class                = 'test-class1 test-class2 test-class1';
+        $expectedClass        = 'test-class1&#x20;test-class2';
         $ariaLabel            = 'test';
         $attributes           = ['class' => $class, 'aria-label' => $ariaLabel];
 
-        $expected = sprintf('<p aria-label="%s" class="%s">%s</p>', $ariaLabel, $class, $textTranlatedEscaped);
+        $expected = sprintf('<p aria-label="%s" class="%s">%s</p>', $ariaLabel, $expectedClass, $textTranlatedEscaped);
 
         $escapeHtml = $this->getMockBuilder(EscapeHtml::class)
             ->disableOriginalConstructor()
