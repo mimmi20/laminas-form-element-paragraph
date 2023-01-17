@@ -20,7 +20,6 @@ use Laminas\View\Helper\EscapeHtml;
 use Mimmi20\Form\Paragraph\Element\ParagraphInterface as ParagraphElement;
 
 use function array_key_exists;
-use function array_merge;
 use function array_unique;
 use function assert;
 use function explode;
@@ -87,7 +86,7 @@ final class FormParagraph extends AbstractHelper
         $attributes = $element->getAttributes();
 
         if (array_key_exists('class', $attributes)) {
-            $classes = array_merge($classes, explode(' ', $attributes['class']));
+            $classes = explode(' ', $attributes['class']);
             unset($attributes['class']);
         }
 
@@ -118,10 +117,8 @@ final class FormParagraph extends AbstractHelper
     /**
      * Set the indentation string for using in {@link render()}, optionally a
      * number of spaces to indent with
-     *
-     * @param int|string $indent
      */
-    public function setIndent($indent): self
+    public function setIndent(int | string $indent): self
     {
         $this->indent = $this->getWhitespace($indent);
 
@@ -140,15 +137,13 @@ final class FormParagraph extends AbstractHelper
 
     /**
      * Retrieve whitespace representation of $indent
-     *
-     * @param int|string $indent
      */
-    protected function getWhitespace($indent): string
+    private function getWhitespace(int | string $indent): string
     {
         if (is_int($indent)) {
             $indent = str_repeat(' ', $indent);
         }
 
-        return (string) $indent;
+        return $indent;
     }
 }

@@ -23,8 +23,6 @@ use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
 
-use function assert;
-
 final class FormParagraphFactoryTest extends TestCase
 {
     private FormParagraphFactory $factory;
@@ -64,10 +62,71 @@ final class FormParagraphFactoryTest extends TestCase
             ->with(HelperPluginManager::class)
             ->willReturn($helperPluginManager);
 
-        assert($container instanceof ContainerInterface);
         $helper = ($this->factory)($container);
 
         self::assertInstanceOf(FormParagraph::class, $helper);
+    }
+
+    /** @throws Exception */
+    public function testInvocationWithTranslator2(): void
+    {
+        $helperPluginManager = $this->getMockBuilder(HelperPluginManager::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $helperPluginManager->expects(self::once())
+            ->method('has')
+            ->with(Translate::class)
+            ->willReturn(true);
+        $helperPluginManager->expects(self::once())
+            ->method('get')
+            ->with(Translate::class)
+            ->willReturn(null);
+
+        $container = $this->getMockBuilder(ContainerInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $container->expects(self::once())
+            ->method('get')
+            ->with(HelperPluginManager::class)
+            ->willReturn($helperPluginManager);
+
+        $this->expectException(AssertionError::class);
+        $this->expectExceptionMessage('assert($translator instanceof Translate)');
+        $this->expectExceptionCode(1);
+
+        ($this->factory)($container);
+    }
+
+    /** @throws Exception */
+    public function testInvocationWithTranslator3(): void
+    {
+        $translatePlugin = $this->createMock(Translate::class);
+
+        $helperPluginManager = $this->getMockBuilder(HelperPluginManager::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $helperPluginManager->expects(self::once())
+            ->method('has')
+            ->with(Translate::class)
+            ->willReturn(true);
+        $helperPluginManager->expects(self::exactly(2))
+            ->method('get')
+            ->withConsecutive([Translate::class], [EscapeHtml::class])
+            ->willReturnOnConsecutiveCalls($translatePlugin, null);
+
+        $container = $this->getMockBuilder(ContainerInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $container->expects(self::once())
+            ->method('get')
+            ->with(HelperPluginManager::class)
+            ->willReturn($helperPluginManager);
+
+        $this->expectException(AssertionError::class);
+        $this->expectExceptionMessage('assert($escapeHtml instanceof EscapeHtml)');
+        $this->expectExceptionCode(1);
+
+        ($this->factory)($container);
     }
 
     /**
@@ -98,10 +157,39 @@ final class FormParagraphFactoryTest extends TestCase
             ->with(HelperPluginManager::class)
             ->willReturn($helperPluginManager);
 
-        assert($container instanceof ContainerInterface);
         $helper = ($this->factory)($container);
 
         self::assertInstanceOf(FormParagraph::class, $helper);
+    }
+
+    /** @throws Exception */
+    public function testInvocationWithoutTranslator2(): void
+    {
+        $helperPluginManager = $this->getMockBuilder(HelperPluginManager::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $helperPluginManager->expects(self::once())
+            ->method('has')
+            ->with(Translate::class)
+            ->willReturn(false);
+        $helperPluginManager->expects(self::once())
+            ->method('get')
+            ->with(EscapeHtml::class)
+            ->willReturn(null);
+
+        $container = $this->getMockBuilder(ContainerInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $container->expects(self::once())
+            ->method('get')
+            ->with(HelperPluginManager::class)
+            ->willReturn($helperPluginManager);
+
+        $this->expectException(AssertionError::class);
+        $this->expectExceptionMessage('assert($escapeHtml instanceof EscapeHtml)');
+        $this->expectExceptionCode(1);
+
+        ($this->factory)($container);
     }
 
     /** @throws Exception */
@@ -114,8 +202,6 @@ final class FormParagraphFactoryTest extends TestCase
             ->method('get')
             ->with(HelperPluginManager::class)
             ->willReturn(true);
-
-        assert($container instanceof ContainerInterface);
 
         $this->expectException(AssertionError::class);
         $this->expectExceptionCode(1);
