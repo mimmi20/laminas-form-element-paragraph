@@ -51,8 +51,12 @@ final class FormParagraphFactoryTest extends TestCase
             ->willReturn(true);
         $helperPluginManager->expects(self::exactly(2))
             ->method('get')
-            ->withConsecutive([Translate::class], [EscapeHtml::class])
-            ->willReturnOnConsecutiveCalls($translatePlugin, $escapeHtml);
+            ->willReturnMap(
+                [
+                    [Translate::class, null, $translatePlugin],
+                    [EscapeHtml::class, null, $escapeHtml],
+                ],
+            );
 
         $container = $this->getMockBuilder(ContainerInterface::class)
             ->disableOriginalConstructor()
@@ -111,8 +115,12 @@ final class FormParagraphFactoryTest extends TestCase
             ->willReturn(true);
         $helperPluginManager->expects(self::exactly(2))
             ->method('get')
-            ->withConsecutive([Translate::class], [EscapeHtml::class])
-            ->willReturnOnConsecutiveCalls($translatePlugin, null);
+            ->willReturnMap(
+                [
+                    [Translate::class, null, $translatePlugin],
+                    [EscapeHtml::class, null, null],
+                ],
+            );
 
         $container = $this->getMockBuilder(ContainerInterface::class)
             ->disableOriginalConstructor()
