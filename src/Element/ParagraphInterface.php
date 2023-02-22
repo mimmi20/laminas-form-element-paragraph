@@ -13,6 +13,7 @@ declare(strict_types = 1);
 namespace Mimmi20\Form\Paragraph\Element;
 
 use Laminas\Form\ElementInterface;
+use Laminas\Form\Exception\InvalidArgumentException;
 use Traversable;
 
 interface ParagraphInterface extends ElementInterface
@@ -27,10 +28,13 @@ interface ParagraphInterface extends ElementInterface
      *
      * @return self
      *
+     * @throws InvalidArgumentException
+     *
      * @phpcsSuppress SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint
      */
     public function setOptions($options);
 
+    /** @throws void */
     public function getText(): string;
 
     /**

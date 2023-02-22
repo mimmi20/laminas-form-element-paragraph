@@ -50,11 +50,17 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
         return $this;
     }
 
+    /** @throws void */
     public function getText(): string
     {
         return $this->text;
     }
 
+    /**
+     * @return $this
+     *
+     * @throws void
+     */
     public function setText(string $text): self
     {
         $this->text = $text;
@@ -67,6 +73,8 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
      *
      * @return array<string, array<int, array<string, class-string>>|false|int|string>
      * @phpstan-return array('name' => string|null, 'required' => false)
+     *
+     * @throws void
      */
     public function getInputSpecification(): array
     {
@@ -80,6 +88,8 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
      * Set the element value, As this Element has no value to send with the form, no value is set
      *
      * @param mixed $value
+     *
+     * @throws void
      *
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
