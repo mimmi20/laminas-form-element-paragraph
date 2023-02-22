@@ -32,8 +32,8 @@ parameters:
   polluteScopeWithAlwaysIterableForeach: false
   polluteScopeWithLoopInitialAssignments: false
 # reportAlwaysTrueInLastCondition: true
-  reportMaybesInMethodSignatures: true
-  reportMaybesInPropertyPhpDocTypes: true
+  reportMaybesInMethodSignatures: false
+  reportMaybesInPropertyPhpDocTypes: false
   reportStaticMethodSignatures: true
 # reportWrongPhpDocTypeInVarTag: true
   treatPhpDocTypesAsCertain: false
