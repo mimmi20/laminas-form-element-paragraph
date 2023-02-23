@@ -34,9 +34,9 @@ final class FormParagraph extends AbstractHelper
 {
     private Translate | null $translate;
     private EscapeHtml $escapeHtml;
-
     private string $indent = '';
 
+    /** @throws void */
     public function __construct(
         EscapeHtml $escaper,
         Translate | null $translator = null,
@@ -85,7 +85,7 @@ final class FormParagraph extends AbstractHelper
         $classes    = [];
         $attributes = $element->getAttributes();
 
-        if (array_key_exists('class', $attributes)) {
+        if (array_key_exists('class', $attributes) && is_string($attributes['class'])) {
             $classes = explode(' ', $attributes['class']);
             unset($attributes['class']);
         }
@@ -117,6 +117,8 @@ final class FormParagraph extends AbstractHelper
     /**
      * Set the indentation string for using in {@link render()}, optionally a
      * number of spaces to indent with
+     *
+     * @throws void
      */
     public function setIndent(int | string $indent): self
     {
@@ -127,6 +129,8 @@ final class FormParagraph extends AbstractHelper
 
     /**
      * Returns indentation
+     *
+     * @throws void
      */
     public function getIndent(): string
     {
@@ -137,6 +141,8 @@ final class FormParagraph extends AbstractHelper
 
     /**
      * Retrieve whitespace representation of $indent
+     *
+     * @throws void
      */
     private function getWhitespace(int | string $indent): string
     {
