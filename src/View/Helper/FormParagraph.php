@@ -85,7 +85,7 @@ final class FormParagraph extends AbstractHelper
         $classes    = [];
         $attributes = $element->getAttributes();
 
-        if (array_key_exists('class', $attributes)) {
+        if (array_key_exists('class', $attributes) && is_string($attributes['class'])) {
             $classes = explode(' ', $attributes['class']);
             unset($attributes['class']);
         }
