@@ -32,17 +32,13 @@ use function trim;
 
 final class FormParagraph extends AbstractHelper
 {
-    private Translate | null $translate;
-    private EscapeHtml $escapeHtml;
     private string $indent = '';
 
     /** @throws void */
     public function __construct(
-        EscapeHtml $escaper,
-        Translate | null $translator = null,
+        private readonly EscapeHtml $escapeHtml,
+        private readonly Translate | null $translate = null,
     ) {
-        $this->escapeHtml = $escaper;
-        $this->translate  = $translator;
     }
 
     /**
