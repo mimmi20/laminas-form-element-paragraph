@@ -24,7 +24,7 @@ interface ParagraphInterface extends ElementInterface
      * - unchecked_value: value for checkbox when unchecked
      * - checked_value: value for checkbox when checked
      *
-     * @param array<int, string>|Traversable<int, string> $options
+     * @param iterable<int, string> $options
      *
      * @return self
      *
