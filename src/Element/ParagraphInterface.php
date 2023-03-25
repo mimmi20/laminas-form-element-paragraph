@@ -14,7 +14,6 @@ namespace Mimmi20\Form\Paragraph\Element;
 
 use Laminas\Form\ElementInterface;
 use Laminas\Form\Exception\InvalidArgumentException;
-use Traversable;
 
 interface ParagraphInterface extends ElementInterface
 {
@@ -32,7 +31,7 @@ interface ParagraphInterface extends ElementInterface
      *
      * @phpcsSuppress SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint
      */
-    public function setOptions($options);
+    public function setOptions(iterable $options);
 
     /** @throws void */
     public function getText(): string;

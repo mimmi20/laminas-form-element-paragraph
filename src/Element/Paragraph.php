@@ -15,7 +15,6 @@ namespace Mimmi20\Form\Paragraph\Element;
 use Laminas\Form\Element;
 use Laminas\Form\Exception\InvalidArgumentException;
 use Laminas\InputFilter\InputProviderInterface;
-use Traversable;
 
 use function is_string;
 
@@ -33,7 +32,7 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
      *
      * @throws InvalidArgumentException
      */
-    public function setOptions($options): self
+    public function setOptions(iterable $options): self
     {
         parent::setOptions($options);
 
