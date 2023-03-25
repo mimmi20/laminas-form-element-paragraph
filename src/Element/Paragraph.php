@@ -15,7 +15,6 @@ namespace Mimmi20\Form\Paragraph\Element;
 use Laminas\Form\Element;
 use Laminas\Form\Exception\InvalidArgumentException;
 use Laminas\InputFilter\InputProviderInterface;
-use Traversable;
 
 use function is_string;
 
@@ -29,11 +28,11 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
      * - unchecked_value: value for checkbox when unchecked
      * - checked_value: value for checkbox when checked
      *
-     * @param array<int, string>|Traversable<int, string> $options
+     * @param iterable<int, string> $options
      *
      * @throws InvalidArgumentException
      */
-    public function setOptions($options): self
+    public function setOptions(iterable $options): self
     {
         parent::setOptions($options);
 
