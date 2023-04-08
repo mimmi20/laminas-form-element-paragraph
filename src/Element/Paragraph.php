@@ -55,11 +55,7 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
         return $this->text;
     }
 
-    /**
-     * @return $this
-     *
-     * @throws void
-     */
+    /** @throws void */
     public function setText(string $text): self
     {
         $this->text = $text;

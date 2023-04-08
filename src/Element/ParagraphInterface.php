@@ -39,6 +39,8 @@ interface ParagraphInterface extends ElementInterface
     /**
      * @return self
      *
+     * @throws void
+     *
      * @phpcsSuppress SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint
      */
     public function setText(string $text);
