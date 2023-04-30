@@ -27,9 +27,9 @@ final class TestFormWrong extends Form
 
         $this->add(
             [
-                'type' => Paragraph::class,
                 'name' => 'paragraph',
                 'options' => ['text' => 123],
+                'type' => Paragraph::class,
             ],
         );
     }

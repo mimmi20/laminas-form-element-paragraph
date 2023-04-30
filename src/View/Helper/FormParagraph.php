@@ -46,11 +46,9 @@ final class FormParagraph extends AbstractHelper
      *
      * Proxies to {@link render()}.
      *
-     * @return FormParagraph|string
-     *
      * @throws Exception\InvalidArgumentException
      */
-    public function __invoke(ElementInterface | null $element = null)
+    public function __invoke(ElementInterface | null $element = null): self | string
     {
         if (!$element) {
             return $this;
@@ -88,9 +86,9 @@ final class FormParagraph extends AbstractHelper
 
         $attributes['class'] = trim(implode(' ', array_unique($classes)));
 
-        if ('' !== $text) {
+        if ($text !== '') {
             // Translate the label
-            if (null !== $this->translate) {
+            if ($this->translate !== null) {
                 $text = ($this->translate)($text, $this->getTranslatorTextDomain());
             }
 
