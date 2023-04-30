@@ -70,9 +70,9 @@ final class ConfigProvider
         return [
             'aliases' => [
                 'formparagraph' => FormParagraph::class,
-                'form_paragraph' => FormParagraph::class,
                 'formParagraph' => FormParagraph::class,
                 'FormParagraph' => FormParagraph::class,
+                'form_paragraph' => FormParagraph::class,
             ],
             'factories' => [
                 FormParagraph::class => FormParagraphFactory::class,

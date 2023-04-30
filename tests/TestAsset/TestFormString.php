@@ -27,9 +27,9 @@ final class TestFormString extends Form
 
         $this->add(
             [
-                'type' => Paragraph::class,
                 'name' => 'paragraph',
                 'options' => ['text' => 'http://www.test.com'],
+                'type' => Paragraph::class,
             ],
         );
     }

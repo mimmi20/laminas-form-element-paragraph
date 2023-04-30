@@ -82,13 +82,11 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
     /**
      * Set the element value, As this Element has no value to send with the form, no value is set
      *
-     * @param mixed $value
-     *
      * @throws void
      *
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
-    public function setValue($value): self
+    public function setValue(mixed $value): self
     {
         return $this;
     }

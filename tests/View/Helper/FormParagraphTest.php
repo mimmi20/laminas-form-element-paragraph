@@ -120,7 +120,12 @@ final class FormParagraphTest extends TestCase
         $class       = 'test-class';
         $ariaLabel   = 'test';
         $attributes  = ['class' => $class, 'aria-label' => $ariaLabel];
-        $expected    = sprintf('<p aria-label="%s" class="%s">%s</p>', $ariaLabel, $class, $textEscaped);
+        $expected    = sprintf(
+            '<p aria-label="%s" class="%s">%s</p>',
+            $ariaLabel,
+            $class,
+            $textEscaped,
+        );
 
         $escapeHtml = $this->getMockBuilder(EscapeHtml::class)
             ->disableOriginalConstructor()
@@ -163,7 +168,12 @@ final class FormParagraphTest extends TestCase
         $attributes  = ['class' => $class, 'aria-label' => $ariaLabel];
         $indent      = '    ';
 
-        $expected = $indent . sprintf('<p aria-label="%s" class="%s">%s</p>', $ariaLabel, $class, $textEscaped);
+        $expected = $indent . sprintf(
+            '<p aria-label="%s" class="%s">%s</p>',
+            $ariaLabel,
+            $class,
+            $textEscaped,
+        );
 
         $escapeHtml = $this->getMockBuilder(EscapeHtml::class)
             ->disableOriginalConstructor()
@@ -209,7 +219,12 @@ final class FormParagraphTest extends TestCase
         $ariaLabel            = 'test';
         $attributes           = ['class' => $class, 'aria-label' => $ariaLabel];
 
-        $expected = sprintf('<p aria-label="%s" class="%s">%s</p>', $ariaLabel, $class, $textTranlatedEscaped);
+        $expected = sprintf(
+            '<p aria-label="%s" class="%s">%s</p>',
+            $ariaLabel,
+            $class,
+            $textTranlatedEscaped,
+        );
 
         $escapeHtml = $this->getMockBuilder(EscapeHtml::class)
             ->disableOriginalConstructor()
@@ -263,7 +278,12 @@ final class FormParagraphTest extends TestCase
         $ariaLabel            = 'test';
         $attributes           = ['class' => $class, 'aria-label' => $ariaLabel];
 
-        $expected = sprintf('<p aria-label="%s" class="%s">%s</p>', $ariaLabel, $class, $textTranlatedEscaped);
+        $expected = sprintf(
+            '<p aria-label="%s" class="%s">%s</p>',
+            $ariaLabel,
+            $class,
+            $textTranlatedEscaped,
+        );
 
         $escapeHtml = $this->getMockBuilder(EscapeHtml::class)
             ->disableOriginalConstructor()
@@ -321,7 +341,12 @@ final class FormParagraphTest extends TestCase
         $ariaLabel            = 'test';
         $attributes           = ['class' => $class, 'aria-label' => $ariaLabel];
 
-        $expected = sprintf('<p aria-label="%s" class="%s">%s</p>', $ariaLabel, $expectedClass, $textTranlatedEscaped);
+        $expected = sprintf(
+            '<p aria-label="%s" class="%s">%s</p>',
+            $ariaLabel,
+            $expectedClass,
+            $textTranlatedEscaped,
+        );
 
         $escapeHtml = $this->getMockBuilder(EscapeHtml::class)
             ->disableOriginalConstructor()
@@ -375,7 +400,12 @@ final class FormParagraphTest extends TestCase
         $ariaLabel            = 'test';
         $attributes           = ['class' => $class, 'aria-label' => $ariaLabel];
 
-        $expected = sprintf('<p aria-label="%s" class="%s">%s</p>', $ariaLabel, $expectedClass, $textTranlatedEscaped);
+        $expected = sprintf(
+            '<p aria-label="%s" class="%s">%s</p>',
+            $ariaLabel,
+            $expectedClass,
+            $textTranlatedEscaped,
+        );
 
         $escapeHtml = $this->getMockBuilder(EscapeHtml::class)
             ->disableOriginalConstructor()
