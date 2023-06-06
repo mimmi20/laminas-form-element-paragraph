@@ -21,7 +21,6 @@ use Mimmi20\Form\Paragraph\View\Helper\FormParagraph;
 use Mimmi20\Form\Paragraph\View\Helper\FormParagraphFactory;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 
 final class FormParagraphFactoryTest extends TestCase
 {
@@ -33,10 +32,7 @@ final class FormParagraphFactoryTest extends TestCase
         $this->factory = new FormParagraphFactory();
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testInvocationWithTranslator(): void
     {
         $translatePlugin = $this->createMock(Translate::class);
@@ -137,10 +133,7 @@ final class FormParagraphFactoryTest extends TestCase
         ($this->factory)($container);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testInvocationWithoutTranslator(): void
     {
         $escapeHtml = $this->createMock(EscapeHtml::class);

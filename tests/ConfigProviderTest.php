@@ -18,7 +18,6 @@ use Mimmi20\Form\Paragraph\Element\ParagraphInterface;
 use Mimmi20\Form\Paragraph\View\Helper\FormParagraph;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
-use SebastianBergmann\RecursionContext\InvalidArgumentException;
 
 final class ConfigProviderTest extends TestCase
 {
@@ -30,10 +29,7 @@ final class ConfigProviderTest extends TestCase
         $this->provider = new ConfigProvider();
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testProviderDefinesExpectedFactoryServices(): void
     {
         $formElementConfig = $this->provider->getFormElementConfig();
@@ -52,10 +48,7 @@ final class ConfigProviderTest extends TestCase
         self::assertArrayHasKey(ParagraphInterface::class, $aliases);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testProviderDefinesExpectedFactoryServices2(): void
     {
         $viewHelperConfig = $this->provider->getViewHelperConfig();
@@ -76,10 +69,7 @@ final class ConfigProviderTest extends TestCase
         self::assertArrayHasKey('FormParagraph', $aliases);
     }
 
-    /**
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
+    /** @throws Exception */
     public function testInvocationReturnsArrayWithDependencies(): void
     {
         $config = ($this->provider)();

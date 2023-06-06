@@ -74,17 +74,23 @@ final class FormParagraph extends AbstractHelper
             );
         }
 
-        $text = $element->getText();
-
-        $classes    = [];
+        $text       = $element->getText();
         $attributes = $element->getAttributes();
 
-        if (array_key_exists('class', $attributes) && is_string($attributes['class'])) {
-            $classes = explode(' ', $attributes['class']);
-            unset($attributes['class']);
-        }
+        if (array_key_exists('class', $attributes)) {
+            $classes = [];
 
-        $attributes['class'] = trim(implode(' ', array_unique($classes)));
+            if (is_string($attributes['class'])) {
+                //var_dump(1, $attributes['class']);
+                $classes = array_unique(explode(' ', $attributes['class']));
+            }
+
+            unset($attributes['class']);
+
+            if ($classes !== []) {
+                $attributes['class'] = trim(implode(' ', $classes));
+            }
+        }
 
         if ($text !== '') {
             // Translate the label

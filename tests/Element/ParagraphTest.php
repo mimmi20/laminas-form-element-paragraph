@@ -26,7 +26,6 @@ use function sprintf;
 final class ParagraphTest extends TestCase
 {
     /**
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws Exception
      * @throws InvalidArgumentException
      */
@@ -41,7 +40,6 @@ final class ParagraphTest extends TestCase
     }
 
     /**
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws Exception
      * @throws InvalidArgumentException
      */
@@ -74,7 +72,6 @@ final class ParagraphTest extends TestCase
     }
 
     /**
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws Exception
      * @throws InvalidArgumentException
      * @throws DomainException
@@ -93,7 +90,6 @@ final class ParagraphTest extends TestCase
     }
 
     /**
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws Exception
      * @throws InvalidArgumentException
      */
@@ -107,7 +103,6 @@ final class ParagraphTest extends TestCase
     }
 
     /**
-     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws Exception
      * @throws InvalidArgumentException
      */
