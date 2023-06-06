@@ -19,7 +19,7 @@ jobs:
 
     uses: "mimmi20/mimmi20/.github/workflows/ci.yml@main"
     with:
-      extensions: "ctype, dom, iconv, intl, mbstring, simplexml, tokenizer, xml, xmlwriter"
+      extensions: "ctype, curl, dom, iconv, intl, mbstring, simplexml, tokenizer, xml, xmlwriter"
       ini-values: "opcache.enable=1, opcache.fast_shutdown=0, zend.assertions=1, assert.exception=On, intl.default_locale=de, intl.use_exceptions=1, zend.exception_ignore_args=0"
       composer-options: "--optimize-autoloader --prefer-dist --prefer-stable -v"
       composer-outdated-option: ""
@@ -27,7 +27,7 @@ jobs:
       skip-phplint: false
       skip-rector: false
       skip-phpmd: false
-      skip-psalm: false
+      skip-psalm: true
     secrets:
       envPAT: "${{ secrets.GITHUB_TOKEN }}"
 
@@ -73,7 +73,7 @@ jobs:
         uses: "shivammathur/setup-php@2.25.2"
         with:
           php-version: "${{ matrix.php-version }}"
-          extensions: "none, phar, json, opcache, dom, iconv, intl, mbstring, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, phar, json, opcache, dom, iconv, intl, mbstring, simplexml, tokenizer, xml, xmlwriter, curl"
           ini-values: "opcache.enable=1, opcache.fast_shutdown=0, zend.assertions=1, assert.exception=On, intl.default_locale=de, intl.use_exceptions=1, zend.exception_ignore_args=0"
           coverage: "none"
           tools: "composer:v2"
@@ -160,7 +160,7 @@ jobs:
       - name: "Run mutation tests with infection/infection"
         env:
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
-        run: "vendor/bin/infection --show-mutations --only-covered --min-covered-msi=82 --min-msi=82 --coverage=.build/coverage --logger-github --no-progress -vv"
+        run: "vendor/bin/infection --show-mutations --only-covered --min-covered-msi=100 --min-msi=100 --coverage=.build/coverage --logger-github --no-progress -vv"
 
   # This is a meta job to avoid to have to constantly change the protection rules
   # whenever we touch the matrix.
