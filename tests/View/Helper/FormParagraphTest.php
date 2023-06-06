@@ -18,6 +18,7 @@ use Laminas\I18n\View\Helper\Translate;
 use Laminas\View\Helper\EscapeHtml;
 use Mimmi20\Form\Paragraph\Element\ParagraphInterface as ParagraphElement;
 use Mimmi20\Form\Paragraph\View\Helper\FormParagraph;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 
@@ -145,9 +146,8 @@ final class FormParagraphTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
-     *
-     * @group attribute-is-not-string
      */
+    #[Group('attribute-is-not-string')]
     public function testRenderEmptyStringWithClassAttributeIsNotString(): void
     {
         $ariaLabel  = 'test';

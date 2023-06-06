@@ -81,7 +81,6 @@ final class FormParagraph extends AbstractHelper
             $classes = [];
 
             if (is_string($attributes['class'])) {
-                //var_dump(1, $attributes['class']);
                 $classes = array_unique(explode(' ', $attributes['class']));
             }
 
