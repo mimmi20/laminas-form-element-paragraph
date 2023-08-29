@@ -7,8 +7,8 @@
 ## Code Status
 
 [![codecov](https://codecov.io/gh/mimmi20/laminas-form-element-paragraph/branch/master/graph/badge.svg)](https://codecov.io/gh/mimmi20/laminas-form-element-paragraph)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/mimmi20/laminas-form-element-paragraph.svg)](http://isitmaintained.com/project/mimmi20/laminas-form-element-paragraph "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/mimmi20/laminas-form-element-paragraph.svg)](http://isitmaintained.com/project/mimmi20/laminas-form-element-paragraph "Percentage of issues still open")
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/mimmi20/laminas-form-element-paragraph.svg)](https://isitmaintained.com/project/mimmi20/laminas-form-element-paragraph "Average time to resolve an issue")
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/mimmi20/laminas-form-element-paragraph.svg)](https://isitmaintained.com/project/mimmi20/laminas-form-element-paragraph "Percentage of issues still open")
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fmimmi20%2Flaminas-form-element-paragraph%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/mimmi20/laminas-form-element-paragraph/master)
 
 ## Requirements
