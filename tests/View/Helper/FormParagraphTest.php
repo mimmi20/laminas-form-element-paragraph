@@ -14,6 +14,7 @@ namespace Mimmi20Test\Form\Paragraph\View\Helper;
 
 use Laminas\Form\Element\Text;
 use Laminas\Form\Exception\InvalidArgumentException;
+use Laminas\I18n\Exception\RuntimeException;
 use Laminas\I18n\View\Helper\Translate;
 use Laminas\View\Helper\EscapeHtml;
 use Mimmi20\Form\Paragraph\Element\ParagraphInterface as ParagraphElement;
@@ -30,6 +31,8 @@ final class FormParagraphTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
+     * @throws RuntimeException
+     * @throws \Laminas\View\Exception\InvalidArgumentException
      */
     public function testRenderWithWrongElement(): void
     {
@@ -75,6 +78,8 @@ final class FormParagraphTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
+     * @throws RuntimeException
+     * @throws \Laminas\View\Exception\InvalidArgumentException
      */
     public function testRenderEmptyString(): void
     {
@@ -111,6 +116,8 @@ final class FormParagraphTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
+     * @throws RuntimeException
+     * @throws \Laminas\View\Exception\InvalidArgumentException
      */
     public function testRenderEmptyStringWithoutClassAttribute(): void
     {
@@ -146,6 +153,8 @@ final class FormParagraphTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
+     * @throws RuntimeException
+     * @throws \Laminas\View\Exception\InvalidArgumentException
      */
     #[Group('attribute-is-not-string')]
     public function testRenderEmptyStringWithClassAttributeIsNotString(): void
@@ -182,6 +191,8 @@ final class FormParagraphTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
+     * @throws RuntimeException
+     * @throws \Laminas\View\Exception\InvalidArgumentException
      */
     public function testRenderText(): void
     {
@@ -227,6 +238,8 @@ final class FormParagraphTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
+     * @throws RuntimeException
+     * @throws \Laminas\View\Exception\InvalidArgumentException
      */
     public function testRenderTextWithIndent(): void
     {
@@ -276,6 +289,8 @@ final class FormParagraphTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
+     * @throws RuntimeException
+     * @throws \Laminas\View\Exception\InvalidArgumentException
      */
     public function testRenderTextWithTranslator(): void
     {
@@ -334,6 +349,8 @@ final class FormParagraphTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
+     * @throws RuntimeException
+     * @throws \Laminas\View\Exception\InvalidArgumentException
      */
     public function testInvokeTextWithTranslator1(): void
     {
@@ -393,7 +410,12 @@ final class FormParagraphTest extends TestCase
         self::assertSame($expected, $helperObject->render($element));
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws InvalidArgumentException
+     * @throws RuntimeException
+     * @throws \Laminas\View\Exception\InvalidArgumentException
+     */
     public function testInvokeTextWithTranslator2(): void
     {
         $textDomain           = 'test-domain';
@@ -449,7 +471,12 @@ final class FormParagraphTest extends TestCase
         self::assertSame($expected, $helper($element));
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws InvalidArgumentException
+     * @throws RuntimeException
+     * @throws \Laminas\View\Exception\InvalidArgumentException
+     */
     public function testInvokeTextWithTranslator3(): void
     {
         $textDomain           = 'test-domain';

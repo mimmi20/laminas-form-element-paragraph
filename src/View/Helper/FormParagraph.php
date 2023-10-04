@@ -15,7 +15,9 @@ namespace Mimmi20\Form\Paragraph\View\Helper;
 use Laminas\Form\ElementInterface;
 use Laminas\Form\Exception;
 use Laminas\Form\View\Helper\AbstractHelper;
+use Laminas\I18n\Exception\RuntimeException;
 use Laminas\I18n\View\Helper\Translate;
+use Laminas\View\Exception\InvalidArgumentException;
 use Laminas\View\Helper\EscapeHtml;
 use Mimmi20\Form\Paragraph\Element\ParagraphInterface as ParagraphElement;
 
@@ -47,6 +49,8 @@ final class FormParagraph extends AbstractHelper
      * Proxies to {@link render()}.
      *
      * @throws Exception\InvalidArgumentException
+     * @throws RuntimeException
+     * @throws InvalidArgumentException
      */
     public function __invoke(ElementInterface | null $element = null): self | string
     {
@@ -61,6 +65,8 @@ final class FormParagraph extends AbstractHelper
      * Render a form <select> element from the provided $element
      *
      * @throws Exception\InvalidArgumentException
+     * @throws RuntimeException
+     * @throws InvalidArgumentException
      */
     public function render(ElementInterface $element): string
     {
