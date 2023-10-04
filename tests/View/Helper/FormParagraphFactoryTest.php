@@ -21,6 +21,7 @@ use Mimmi20\Form\Paragraph\View\Helper\FormParagraph;
 use Mimmi20\Form\Paragraph\View\Helper\FormParagraphFactory;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerExceptionInterface;
 
 final class FormParagraphFactoryTest extends TestCase
 {
@@ -32,7 +33,10 @@ final class FormParagraphFactoryTest extends TestCase
         $this->factory = new FormParagraphFactory();
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws ContainerExceptionInterface
+     */
     public function testInvocationWithTranslator(): void
     {
         $translatePlugin = $this->createMock(Translate::class);
@@ -67,7 +71,10 @@ final class FormParagraphFactoryTest extends TestCase
         self::assertInstanceOf(FormParagraph::class, $helper);
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws ContainerExceptionInterface
+     */
     public function testInvocationWithTranslator2(): void
     {
         $helperPluginManager = $this->getMockBuilder(HelperPluginManager::class)
@@ -97,7 +104,10 @@ final class FormParagraphFactoryTest extends TestCase
         ($this->factory)($container);
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws ContainerExceptionInterface
+     */
     public function testInvocationWithTranslator3(): void
     {
         $translatePlugin = $this->createMock(Translate::class);
@@ -133,7 +143,10 @@ final class FormParagraphFactoryTest extends TestCase
         ($this->factory)($container);
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws ContainerExceptionInterface
+     */
     public function testInvocationWithoutTranslator(): void
     {
         $escapeHtml = $this->createMock(EscapeHtml::class);
@@ -163,7 +176,10 @@ final class FormParagraphFactoryTest extends TestCase
         self::assertInstanceOf(FormParagraph::class, $helper);
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws ContainerExceptionInterface
+     */
     public function testInvocationWithoutTranslator2(): void
     {
         $helperPluginManager = $this->getMockBuilder(HelperPluginManager::class)
@@ -193,7 +209,10 @@ final class FormParagraphFactoryTest extends TestCase
         ($this->factory)($container);
     }
 
-    /** @throws Exception */
+    /**
+     * @throws Exception
+     * @throws ContainerExceptionInterface
+     */
     public function testInvocationWithAssertionError(): void
     {
         $container = $this->getMockBuilder(ContainerInterface::class)
