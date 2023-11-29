@@ -16,6 +16,10 @@ use Laminas\Form\Exception\InvalidArgumentException;
 use Laminas\Form\Form;
 use Mimmi20\Form\Paragraph\Element\Paragraph;
 
+/**
+ * @template TFilteredValues of object
+ * @extends Form<TFilteredValues>
+ */
 final class TestFormWrong extends Form
 {
     /** @throws InvalidArgumentException */
@@ -23,7 +27,10 @@ final class TestFormWrong extends Form
     {
         parent::__construct('collection');
 
-        $this->setInputFilter(new InputFilter());
+        /** @var InputFilter<TFilteredValues> $inputFilter */
+        $inputFilter = new InputFilter();
+
+        $this->setInputFilter($inputFilter);
 
         $this->add(
             [
