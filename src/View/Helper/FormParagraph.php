@@ -124,6 +124,8 @@ final class FormParagraph extends AbstractHelper
      * number of spaces to indent with
      *
      * @throws void
+     *
+     * @api
      */
     public function setIndent(int | string $indent): self
     {
