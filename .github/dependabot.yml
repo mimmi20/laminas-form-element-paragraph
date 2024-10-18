@@ -11,8 +11,6 @@ updates:
 
     schedule:
       interval: "daily"
-      time: "04:00"
-      timezone: "Europe/Berlin"
 
     open-pull-requests-limit: 10
 
@@ -67,8 +65,6 @@ updates:
 
     schedule:
       interval: "daily"
-      time: "04:00"
-      timezone: "Europe/Berlin"
 
     open-pull-requests-limit: 10
 
@@ -116,8 +112,6 @@ updates:
 
     schedule:
       interval: "daily"
-      time: "04:00"
-      timezone: "Europe/Berlin"
 
     open-pull-requests-limit: 10
 
