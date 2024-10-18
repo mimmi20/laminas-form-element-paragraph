@@ -14,26 +14,8 @@ jobs:
       contents: write
 
     steps:
-      - name: "Dependabot metadata"
-        id: "metadata"
-        uses: "dependabot/fetch-metadata@v2.2.0"
+      - uses: "fastify/github-action-merge-dependabot@v3"
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: "Checkout"
-        uses: "actions/checkout@v4"
-        with:
-          # Disabling shallow clone is recommended for improving relevancy of reporting
-          fetch-depth: 0
-          lfs: false
-          persist-credentials: false
-
-      - name: "print update-type"
-        run: echo ${{ steps.metadata.outputs.update-type }}
-
-      - name: "Enable auto-merge for Dependabot PRs"
-        if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-minor' || steps.metadata.outputs.update-type == 'version-update:semver-patch' }}
-        run: gh pr merge --auto --merge "$PR_URL"
-        env:
-          PR_URL: "${{ github.event.pull_request.html_url }}"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          use-github-auto-merge: true
+          merge-method: "merge"
