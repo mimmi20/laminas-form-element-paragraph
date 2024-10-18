@@ -1,0 +1,39 @@
+name: "Auto merge"
+
+on:
+  - pull_request_target
+
+jobs:
+  automerge:
+    runs-on: "ubuntu-24.04"
+
+    if: ${{ github.actor == 'dependabot[bot]' }}
+
+    permissions:
+      pull-requests: write
+      contents: write
+
+    steps:
+      - name: "Dependabot metadata"
+        id: "metadata"
+        uses: "dependabot/fetch-metadata@v2.2.0"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Checkout"
+        uses: "actions/checkout@v3"
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
+          lfs: false
+          persist-credentials: false
+
+      - name: "print update-type"
+        run: echo ${{ steps.metadata.outputs.update-type }}
+
+      - name: "Enable auto-merge for Dependabot PRs"
+        if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-minor' || steps.metadata.outputs.update-type == 'version-update:semver-patch' }}
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: "${{ github.event.pull_request.html_url }}"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

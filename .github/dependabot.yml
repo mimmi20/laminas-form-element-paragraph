@@ -10,30 +10,9 @@ updates:
     directory: "/"
 
     schedule:
-      interval: "weekly"
-      day: "wednesday"
+      interval: "daily"
       time: "04:00"
       timezone: "Europe/Berlin"
-
-    groups:
-      security-updates:
-        applies-to: "security-updates"
-        patterns:
-          - "*"
-        exclude-patterns:
-          - "friendsofphp/php-cs-fixer"
-          - "sirbrillig/phpcs-variable-analysis"
-          - "slevomat/coding-standard"
-          - "squizlabs/php_codesniffer"
-      version-updates:
-        applies-to: "version-updates"
-        patterns:
-          - "*"
-        exclude-patterns:
-          - "friendsofphp/php-cs-fixer"
-          - "sirbrillig/phpcs-variable-analysis"
-          - "slevomat/coding-standard"
-          - "squizlabs/php_codesniffer"
 
     open-pull-requests-limit: 10
 
@@ -84,27 +63,16 @@ updates:
       - dependency-name: "symfony/yaml"
 
     # Disable rebasing for all pull requests
-    rebase-strategy: "disabled"
+    rebase-strategy: "auto"
 
   - package-ecosystem: "npm"
 
     directory: "/"
 
     schedule:
-      interval: "weekly"
-      day: "wednesday"
+      interval: "daily"
       time: "04:00"
       timezone: "Europe/Berlin"
-
-    groups:
-      security-updates:
-        applies-to: "security-updates"
-        patterns:
-          - "*"
-      version-updates:
-        applies-to: "version-updates"
-        patterns:
-          - "*"
 
     open-pull-requests-limit: 10
 
@@ -145,29 +113,16 @@ updates:
       - dependency-name: "vitest"
 
     # Disable rebasing for all pull requests
-    rebase-strategy: "disabled"
+    rebase-strategy: "auto"
 
   - package-ecosystem: "github-actions"
 
     directory: "/"
 
     schedule:
-      interval: "weekly"
-      day: "wednesday"
+      interval: "daily"
       time: "04:00"
       timezone: "Europe/Berlin"
-
-    groups:
-      # Specify a name for the group, which will be used in pull request titles
-      # and branch names
-      security-updates:
-        applies-to: "security-updates"
-        patterns:
-          - "*"
-      version-updates:
-        applies-to: "version-updates"
-        patterns:
-          - "*"
 
     open-pull-requests-limit: 10
 
@@ -186,4 +141,4 @@ updates:
       prefix: "github-actions"
 
     # Disable rebasing for all pull requests
-    rebase-strategy: "disabled"
+    rebase-strategy: "auto"
