@@ -15,6 +15,7 @@ namespace Mimmi20Test\Form\Paragraph\View\Helper;
 use AssertionError;
 use Interop\Container\ContainerInterface;
 use Laminas\I18n\View\Helper\Translate;
+use Laminas\View\Helper\AbstractHelper;
 use Laminas\View\Helper\EscapeHtml;
 use Laminas\View\HelperPluginManager;
 use Mimmi20\Form\Paragraph\View\Helper\FormParagraph;
@@ -49,13 +50,25 @@ final class FormParagraphFactoryTest extends TestCase
             ->method('has')
             ->with(Translate::class)
             ->willReturn(true);
-        $helperPluginManager->expects(self::exactly(2))
+        $matcher = self::exactly(2);
+        $helperPluginManager->expects($matcher)
             ->method('get')
-            ->willReturnMap(
-                [
-                    [Translate::class, null, $translatePlugin],
-                    [EscapeHtml::class, null, $escapeHtml],
-                ],
+            ->willReturnCallback(
+                static function (string $name, array | null $options = null) use ($matcher, $translatePlugin, $escapeHtml): AbstractHelper {
+                    $invocation = $matcher->numberOfInvocations();
+
+                    match ($invocation) {
+                        1 => self::assertSame(Translate::class, $name),
+                        default => self::assertSame(EscapeHtml::class, $name),
+                    };
+
+                    self::assertNull($options);
+
+                    return match ($matcher->numberOfInvocations()) {
+                        1 => $translatePlugin,
+                        default => $escapeHtml,
+                    };
+                },
             );
 
         $container = $this->getMockBuilder(ContainerInterface::class)
@@ -119,13 +132,25 @@ final class FormParagraphFactoryTest extends TestCase
             ->method('has')
             ->with(Translate::class)
             ->willReturn(true);
-        $helperPluginManager->expects(self::exactly(2))
+        $matcher = self::exactly(2);
+        $helperPluginManager->expects($matcher)
             ->method('get')
-            ->willReturnMap(
-                [
-                    [Translate::class, null, $translatePlugin],
-                    [EscapeHtml::class, null, null],
-                ],
+            ->willReturnCallback(
+                static function (string $name, array | null $options = null) use ($matcher, $translatePlugin): AbstractHelper | null {
+                    $invocation = $matcher->numberOfInvocations();
+
+                    match ($invocation) {
+                        1 => self::assertSame(Translate::class, $name),
+                        default => self::assertSame(EscapeHtml::class, $name),
+                    };
+
+                    self::assertNull($options);
+
+                    return match ($matcher->numberOfInvocations()) {
+                        1 => $translatePlugin,
+                        default => null,
+                    };
+                },
             );
 
         $container = $this->getMockBuilder(ContainerInterface::class)
