@@ -54,10 +54,10 @@ final class FormParagraphFactoryTest extends TestCase
         $helperPluginManager->expects($matcher)
             ->method('get')
             ->willReturnCallback(
-                function (string $name, ?array $options = null) use ($matcher, $translatePlugin, $escapeHtml): AbstractHelper {
+                static function (string $name, array | null $options = null) use ($matcher, $translatePlugin, $escapeHtml): AbstractHelper {
                     $invocation = $matcher->numberOfInvocations();
 
-                    match($invocation) {
+                    match ($invocation) {
                         1 => self::assertSame(Translate::class, $name),
                         default => self::assertSame(EscapeHtml::class, $name),
                     };
@@ -68,7 +68,7 @@ final class FormParagraphFactoryTest extends TestCase
                         1 => $translatePlugin,
                         default => $escapeHtml,
                     };
-                }
+                },
             );
 
         $container = $this->getMockBuilder(ContainerInterface::class)
@@ -136,10 +136,10 @@ final class FormParagraphFactoryTest extends TestCase
         $helperPluginManager->expects($matcher)
             ->method('get')
             ->willReturnCallback(
-                function (string $name, ?array $options = null) use ($matcher, $translatePlugin): AbstractHelper|null {
+                static function (string $name, array | null $options = null) use ($matcher, $translatePlugin): AbstractHelper | null {
                     $invocation = $matcher->numberOfInvocations();
 
-                    match($invocation) {
+                    match ($invocation) {
                         1 => self::assertSame(Translate::class, $name),
                         default => self::assertSame(EscapeHtml::class, $name),
                     };
@@ -150,7 +150,7 @@ final class FormParagraphFactoryTest extends TestCase
                         1 => $translatePlugin,
                         default => null,
                     };
-                }
+                },
             );
 
         $container = $this->getMockBuilder(ContainerInterface::class)
