@@ -11,6 +11,8 @@ updates:
 
     schedule:
       interval: "daily"
+      time: "04:00"
+      timezone: "Europe/Berlin"
 
     open-pull-requests-limit: 10
 
@@ -65,6 +67,8 @@ updates:
 
     schedule:
       interval: "daily"
+      time: "04:00"
+      timezone: "Europe/Berlin"
 
     open-pull-requests-limit: 10
 
@@ -81,5 +85,8 @@ updates:
 
     commit-message:
       prefix: "github-actions"
+
+    ignore:
+      - dependency-name: "mimmi20/ci"
 
     rebase-strategy: "auto"
