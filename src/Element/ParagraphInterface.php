@@ -15,6 +15,7 @@ namespace Mimmi20\Form\Paragraph\Element;
 
 use Laminas\Form\ElementInterface;
 use Laminas\Form\Exception\InvalidArgumentException;
+use Override;
 
 interface ParagraphInterface extends ElementInterface
 {
@@ -32,6 +33,7 @@ interface ParagraphInterface extends ElementInterface
      *
      * @phpcsSuppress SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint
      */
+    #[Override]
     public function setOptions(iterable $options);
 
     /** @throws void */

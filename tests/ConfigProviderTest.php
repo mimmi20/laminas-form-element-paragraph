@@ -17,6 +17,7 @@ use Mimmi20\Form\Paragraph\ConfigProvider;
 use Mimmi20\Form\Paragraph\Element\Paragraph;
 use Mimmi20\Form\Paragraph\Element\ParagraphInterface;
 use Mimmi20\Form\Paragraph\View\Helper\FormParagraph;
+use Override;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 
@@ -25,6 +26,7 @@ final class ConfigProviderTest extends TestCase
     private ConfigProvider $provider;
 
     /** @throws void */
+    #[Override]
     protected function setUp(): void
     {
         $this->provider = new ConfigProvider();
