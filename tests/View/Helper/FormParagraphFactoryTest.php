@@ -21,6 +21,7 @@ use Laminas\View\Helper\EscapeHtml;
 use Laminas\View\HelperPluginManager;
 use Mimmi20\Form\Paragraph\View\Helper\FormParagraph;
 use Mimmi20\Form\Paragraph\View\Helper\FormParagraphFactory;
+use Override;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
@@ -30,6 +31,7 @@ final class FormParagraphFactoryTest extends TestCase
     private FormParagraphFactory $factory;
 
     /** @throws void */
+    #[Override]
     protected function setUp(): void
     {
         $this->factory = new FormParagraphFactory();

@@ -16,6 +16,7 @@ namespace Mimmi20\Form\Paragraph\Element;
 use Laminas\Form\Element;
 use Laminas\Form\Exception\InvalidArgumentException;
 use Laminas\InputFilter\InputProviderInterface;
+use Override;
 
 use function is_string;
 
@@ -33,6 +34,7 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
      *
      * @throws InvalidArgumentException
      */
+    #[Override]
     public function setOptions(iterable $options): self
     {
         parent::setOptions($options);
@@ -51,12 +53,14 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
     }
 
     /** @throws void */
+    #[Override]
     public function getText(): string
     {
         return $this->text;
     }
 
     /** @throws void */
+    #[Override]
     public function setText(string $text): self
     {
         $this->text = $text;
@@ -72,6 +76,7 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
      *
      * @throws void
      */
+    #[Override]
     public function getInputSpecification(): array
     {
         return [
@@ -87,6 +92,7 @@ final class Paragraph extends Element implements InputProviderInterface, Paragra
      *
      * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      */
+    #[Override]
     public function setValue(mixed $value): self
     {
         return $this;
