@@ -35,6 +35,7 @@ updates:
 
     ignore:
       - dependency-name: "psr/container"
+      - dependency-name: "laminas/laminas-servicemanager"
 
     rebase-strategy: "auto"
 
