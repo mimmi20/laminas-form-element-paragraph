@@ -21,25 +21,18 @@ use Laminas\View\Helper\EscapeHtml;
 use Laminas\View\HelperPluginManager;
 use Mimmi20\Form\Paragraph\View\Helper\FormParagraph;
 use Mimmi20\Form\Paragraph\View\Helper\FormParagraphFactory;
-use Override;
+use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 
 final class FormParagraphFactoryTest extends TestCase
 {
-    private FormParagraphFactory $factory;
-
-    /** @throws void */
-    #[Override]
-    protected function setUp(): void
-    {
-        $this->factory = new FormParagraphFactory();
-    }
-
     /**
      * @throws Exception
      * @throws ContainerExceptionInterface
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testInvocationWithTranslator(): void
     {
@@ -82,7 +75,7 @@ final class FormParagraphFactoryTest extends TestCase
             ->with(HelperPluginManager::class)
             ->willReturn($helperPluginManager);
 
-        $helper = ($this->factory)($container);
+        $helper = (new FormParagraphFactory())($container);
 
         self::assertInstanceOf(FormParagraph::class, $helper);
     }
@@ -117,12 +110,14 @@ final class FormParagraphFactoryTest extends TestCase
         $this->expectExceptionMessage('assert($translator instanceof Translate)');
         $this->expectExceptionCode(1);
 
-        ($this->factory)($container);
+        (new FormParagraphFactory())($container);
     }
 
     /**
      * @throws Exception
      * @throws ContainerExceptionInterface
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testInvocationWithTranslator3(): void
     {
@@ -168,12 +163,14 @@ final class FormParagraphFactoryTest extends TestCase
         $this->expectExceptionMessage('assert($escapeHtml instanceof EscapeHtml)');
         $this->expectExceptionCode(1);
 
-        ($this->factory)($container);
+        (new FormParagraphFactory())($container);
     }
 
     /**
      * @throws Exception
      * @throws ContainerExceptionInterface
+     * @throws NoPreviousThrowableException
+     * @throws \PHPUnit\Framework\MockObject\Exception
      */
     public function testInvocationWithoutTranslator(): void
     {
@@ -199,7 +196,7 @@ final class FormParagraphFactoryTest extends TestCase
             ->with(HelperPluginManager::class)
             ->willReturn($helperPluginManager);
 
-        $helper = ($this->factory)($container);
+        $helper = (new FormParagraphFactory())($container);
 
         self::assertInstanceOf(FormParagraph::class, $helper);
     }
@@ -234,7 +231,7 @@ final class FormParagraphFactoryTest extends TestCase
         $this->expectExceptionMessage('assert($escapeHtml instanceof EscapeHtml)');
         $this->expectExceptionCode(1);
 
-        ($this->factory)($container);
+        (new FormParagraphFactory())($container);
     }
 
     /**
@@ -257,6 +254,6 @@ final class FormParagraphFactoryTest extends TestCase
             '$plugin should be an Instance of Laminas\View\HelperPluginManager, but was bool',
         );
 
-        ($this->factory)($container);
+        (new FormParagraphFactory())($container);
     }
 }

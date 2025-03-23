@@ -17,25 +17,15 @@ use Mimmi20\Form\Paragraph\ConfigProvider;
 use Mimmi20\Form\Paragraph\Element\Paragraph;
 use Mimmi20\Form\Paragraph\Element\ParagraphInterface;
 use Mimmi20\Form\Paragraph\View\Helper\FormParagraph;
-use Override;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 
 final class ConfigProviderTest extends TestCase
 {
-    private ConfigProvider $provider;
-
-    /** @throws void */
-    #[Override]
-    protected function setUp(): void
-    {
-        $this->provider = new ConfigProvider();
-    }
-
     /** @throws Exception */
     public function testProviderDefinesExpectedFactoryServices(): void
     {
-        $formElementConfig = $this->provider->getFormElementConfig();
+        $formElementConfig = (new ConfigProvider())->getFormElementConfig();
         self::assertCount(2, $formElementConfig);
         self::assertArrayHasKey('factories', $formElementConfig);
         $factories = $formElementConfig['factories'];
@@ -54,7 +44,7 @@ final class ConfigProviderTest extends TestCase
     /** @throws Exception */
     public function testProviderDefinesExpectedFactoryServices2(): void
     {
-        $viewHelperConfig = $this->provider->getViewHelperConfig();
+        $viewHelperConfig = (new ConfigProvider())->getViewHelperConfig();
         self::assertCount(2, $viewHelperConfig);
         self::assertArrayHasKey('factories', $viewHelperConfig);
         $factories = $viewHelperConfig['factories'];
@@ -75,7 +65,7 @@ final class ConfigProviderTest extends TestCase
     /** @throws Exception */
     public function testInvocationReturnsArrayWithDependencies(): void
     {
-        $config = ($this->provider)();
+        $config = (new ConfigProvider())();
 
         self::assertIsArray($config);
         self::assertCount(2, $config);
