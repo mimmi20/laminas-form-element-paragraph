@@ -63,7 +63,7 @@ final class FormParagraph extends AbstractHelper
     }
 
     /**
-     * Render a form <select> element from the provided $element
+     * Render a <p> element from the provided $element
      *
      * @throws Exception\InvalidArgumentException
      * @throws RuntimeException

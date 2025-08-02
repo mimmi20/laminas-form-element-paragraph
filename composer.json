@@ -1,6 +1,6 @@
 {
   "name": "mimmi20/laminas-form-element-paragraph",
-  "description": "Provides a GitHub repository laminas-form-element-paragraph for a PHP library, using GitHub actions.",
+  "description": "Provides a form element and a view helper to render paragraphs inside forms",
   "license": "MIT",
   "type": "library",
   "authors": [
@@ -19,7 +19,7 @@
     "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
     "laminas/laminas-form": "^3.21.0",
     "laminas/laminas-inputfilter": "^2.33.0",
-    "laminas/laminas-view": "^2.39.0"
+    "laminas/laminas-view": "^2.40.0"
   },
   "require-dev": {
     "ext-ctype": "*",
