@@ -109,6 +109,7 @@ parameters:
 
   ignoreErrors:
     - '~Call to static method PHPUnit\\Framework\\Assert::assert.*\(\) with .* will always evaluate to true~'
+    - '~Return type of anonymous function has typehint with deprecated class~'
 
 rules:
   # code complexity
