@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace Mimmi20Test\Form\Paragraph\TestAsset;
 
+use Laminas\Form\Exception\ExceptionInterface;
 use Laminas\Form\Exception\InvalidArgumentException;
 use Laminas\Form\Form;
 use Mimmi20\Form\Paragraph\Element\Paragraph;
@@ -23,7 +24,10 @@ use Mimmi20\Form\Paragraph\Element\Paragraph;
  */
 final class TestFormWrong extends Form
 {
-    /** @throws InvalidArgumentException */
+    /**
+     * @throws InvalidArgumentException
+     * @throws ExceptionInterface
+     */
     public function __construct()
     {
         parent::__construct('collection');
