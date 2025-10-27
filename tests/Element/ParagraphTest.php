@@ -14,6 +14,7 @@ declare(strict_types = 1);
 namespace Mimmi20Test\Form\Paragraph\Element;
 
 use Laminas\Form\Exception\DomainException;
+use Laminas\Form\Exception\ExceptionInterface;
 use Laminas\Form\Exception\InvalidArgumentException;
 use Mimmi20\Form\Paragraph\Element\Paragraph;
 use Mimmi20Test\Form\Paragraph\TestAsset\TestFormString;
@@ -43,6 +44,7 @@ final class ParagraphTest extends TestCase
     /**
      * @throws Exception
      * @throws InvalidArgumentException
+     * @throws ExceptionInterface
      */
     public function testCanRetrieveText(): void
     {
@@ -62,7 +64,10 @@ final class ParagraphTest extends TestCase
         self::assertSame($text, $paragraph->getText());
     }
 
-    /** @throws InvalidArgumentException */
+    /**
+     * @throws InvalidArgumentException
+     * @throws ExceptionInterface
+     */
     public function testCanRetrieveTextException(): void
     {
         $this->expectException(InvalidArgumentException::class);
@@ -76,6 +81,7 @@ final class ParagraphTest extends TestCase
      * @throws Exception
      * @throws InvalidArgumentException
      * @throws DomainException
+     * @throws ExceptionInterface
      */
     public function testValidationIsEveryTimeTrue(): void
     {

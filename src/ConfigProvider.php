@@ -44,6 +44,8 @@ final class ConfigProvider
      * @phpstan-return array{aliases: array<string, class-string>, factories: array<class-string, class-string>}
      *
      * @throws void
+     *
+     * @api
      */
     public function getFormElementConfig(): array
     {
@@ -65,6 +67,8 @@ final class ConfigProvider
      * @phpstan-return array{aliases: array<string, class-string>, factories: array<class-string, class-string>}
      *
      * @throws void
+     *
+     * @api
      */
     public function getViewHelperConfig(): array
     {
